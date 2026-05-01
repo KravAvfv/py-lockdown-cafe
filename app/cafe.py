@@ -8,7 +8,7 @@ class Cafe():
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict):
+    def visit_cafe(self, visitor: dict) -> str:
         try:
             if not visitor.get("vaccine"):
                 raise NotVaccinatedError("You are not vaccinated.")
@@ -17,7 +17,7 @@ class Cafe():
                 raise OutdatedVaccineError("The vaccine must not be expired!")
             elif not visitor.get("wearing_a_mask"):
                 raise NotWearingMaskError("All visitors must wear masks!")
-        except:
+        except Exception:
             raise
         else:
-            print(f"Welcome to {self.name}")
+            return f"Welcome to {self.name}"
